@@ -12,7 +12,7 @@ package Model;
 public class Telefone {
     
      private int telefoneid, clienteid;
-        private String numero;
+        private String numero, ddd;
         
        public void setID (int telefoneid) {
            this.telefoneid = telefoneid;
@@ -36,5 +36,13 @@ public class Telefone {
        
        public String getnumero () {
            return this.numero;
+       }
+       
+       public void setddd (String ddd){
+           this.ddd = ddd;
+       }
+       
+       public String getddd(){
+           return this.ddd;
        }
 }

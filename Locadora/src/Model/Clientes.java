@@ -12,7 +12,7 @@ package Model;
 public class Clientes {
  
     private int clienteid;
-     private String  rg, cpf, estado, cidade, cep;
+     private String  nome, rg, cpf,cnh, estado, cidade, cep;
      
      public void setID (int clienteid) {
          this.clienteid = clienteid;
@@ -20,6 +20,14 @@ public class Clientes {
      
      public int getID () {
          return this.clienteid;
+     }
+     
+     public void setnome(String nome){
+         this.nome = nome;
+     }
+     
+     public String getnome (){
+         return this.nome;
      }
      
      public void setrg (String rg) {
@@ -36,6 +44,14 @@ public class Clientes {
      
      public String getcpf (){
          return this.cpf;
+     }
+     
+     public void setcnh (String cnh){
+        this.cnh = cnh;
+     }
+     
+     public String getcnh(){
+         return this.cnh;
      }
      
      public void setestado (String estado){

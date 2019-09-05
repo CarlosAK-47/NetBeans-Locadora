@@ -5,33 +5,42 @@
  */
 package Controller;
 
+import View.Clientes;
+import java.util.ArrayList;
+
 /**
  *
  * @author aluno
  */
 public class ClientesController {
     
-    public void insert (Veiculos v){
+    public void insert (Clientes c){
         
     }
     
-    public void update (Veiculos v){
+    public void update (Clientes c){
         
     }
     
-    public void delete (Veiculos v){
+    public void delete (Clientes c){
         
     }
     
-    public Veiculos getById (int id){
+    public Clientes getById (int id){
+        
+        Clientes c = new Clientes ();
+        
+        return c;
+    }
+    
+    public ArrayList <Clientes> getAllRows (){
+        
+        Clientes c = new Clientes ();
+        
         
     }
     
-    public ArrayList <Veiculos> getAllRows (){
-        
-    }
-    
-    public ArrayList <Veiculos> findByName ( String n){
+    public ArrayList <Clientes> findByName ( String n){
         
     }
 }
