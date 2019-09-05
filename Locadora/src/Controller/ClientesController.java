@@ -36,11 +36,13 @@ public class ClientesController {
     public ArrayList <Clientes> getAllRows (){
         
         Clientes c = new Clientes ();
+        return null;
         
         
     }
     
     public ArrayList <Clientes> findByName ( String n){
+        return null;
         
     }
 }

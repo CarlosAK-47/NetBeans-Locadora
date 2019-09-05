@@ -30,6 +30,10 @@ public class CarroController {
         
         return c;
     }
+
+    public void insert(View.Carro c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

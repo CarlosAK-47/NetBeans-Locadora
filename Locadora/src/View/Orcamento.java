@@ -28,13 +28,13 @@ public class Orcamento extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtdataretirada = new javax.swing.JFormattedTextField();
+        txtDataretirada = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtdataentrega = new javax.swing.JFormattedTextField();
+        txtDataentrega = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtvalordiaria = new javax.swing.JTextField();
+        txtValordiaria = new javax.swing.JTextField();
         txt = new javax.swing.JLabel();
-        txtvalortotal = new javax.swing.JTextField();
+        txtValortotal = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
@@ -42,15 +42,20 @@ public class Orcamento extends javax.swing.JFrame {
 
         jLabel1.setText("Data da Retirada:");
 
-        txtdataretirada.setText("    /      /");
+        txtDataretirada.setText("    /      /");
+        txtDataretirada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataretiradaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Data da Entrega:");
 
-        txtdataentrega.setText("     /     /");
+        txtDataentrega.setText("     /     /");
 
         jLabel3.setText("Valor da Diária:");
 
-        txtvalordiaria.setText(" ");
+        txtValordiaria.setText(" ");
 
         txt.setText("Valor Total:");
 
@@ -75,15 +80,15 @@ public class Orcamento extends javax.swing.JFrame {
                         .addGap(118, 118, 118))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtvalordiaria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtdataretirada, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtValordiaria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDataretirada, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtdataentrega, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                .addComponent(txtDataentrega, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                                 .addGap(118, 118, 118))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtvalortotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtValortotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
@@ -115,16 +120,16 @@ public class Orcamento extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtdataentrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdataretirada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataentrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataretirada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtvalordiaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtvalortotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValordiaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValortotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(38, 38, 38))
@@ -132,6 +137,21 @@ public class Orcamento extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDataretiradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataretiradaActionPerformed
+        // TODO add your handling code here:
+        
+        Orcamento o = new Orcamento();
+        
+        o.setDataretirada(txtDataretirada.getText());
+        o.setDataentrega(txtDataentrega.getText());
+        o.setValordiaria(txtValordiaria.getText());
+        o.setValortotal(txtValortotal.getText());
+        
+        OrcamentoController oc = OrcamentoController();  
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  oc.insert(o);
+    }//GEN-LAST:event_txtDataretiradaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,9 +195,39 @@ public class Orcamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel txt;
-    private javax.swing.JFormattedTextField txtdataentrega;
-    private javax.swing.JFormattedTextField txtdataretirada;
-    private javax.swing.JTextField txtvalordiaria;
-    private javax.swing.JTextField txtvalortotal;
+    private javax.swing.JFormattedTextField txtDataentrega;
+    private javax.swing.JFormattedTextField txtDataretirada;
+    private javax.swing.JTextField txtValordiaria;
+    private javax.swing.JTextField txtValortotal;
     // End of variables declaration//GEN-END:variables
+
+    private void setDataretirada(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDataentrega(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setValordiaria(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setValortotal(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private OrcamentoController OrcamentoController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static class OrcamentoController {
+
+        public OrcamentoController() {
+        }
+
+        private void insert(Orcamento o) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
 }
