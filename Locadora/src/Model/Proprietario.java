@@ -11,7 +11,7 @@ package Model;
 public class Proprietario {
     
     private int usuarioid;
-        private String cpf, endereco, telefone, cadastro;
+        private String nome, cpf, endereco, telefone, cadastro;
         
         public void setID(int usuarioid){
               this.usuarioid = usuarioid;
@@ -20,6 +20,14 @@ public class Proprietario {
         public int getID(){
               return this.usuarioid;
         } 
+        
+        public void setnome (String nome){
+               this.nome = nome;
+        }
+        
+        public String getnome(){
+            return this.nome;
+        }
         
         public void setcpf(String cpf){
               this.cpf = cpf;
