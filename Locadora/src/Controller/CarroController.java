@@ -6,6 +6,8 @@
 package Controller;
 
 import Model.Carro;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,7 +15,15 @@ import Model.Carro;
  */
 public class CarroController {
     
-    public void insert (Carro c){
+    public void insert (Carro c) throws SQLException{
+        try (PreparedStatement stmt = bd.getConn().PrepareStatement("INSERT INTO carro (modelo, cor, marca, placa) VALUES (?, ?, ?, ?)")) {
+            stmt.setString(1, c.getModelo());
+            stmt.setString(2, c.getCor());
+            stmt.setString(3, c.getMarca());
+            stmt.setString(4, c.getPlaca());
+            
+            stmt.execute();
+        }        
         
     }
     
@@ -25,8 +35,12 @@ public class CarroController {
         
     }
     
-    public Carro getById (int id) {
+    public Carro getById (int id) throws SQLException {
         Carro c = new Carro();
+        
+        PreparedStatement stmt;
+        stmt = bd.getConn().prepareStatement("SELECT * FROM carro WHERE id = ? ");
+        stmt.setInt(1, id);
         
         return c;
     }
