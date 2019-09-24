@@ -7,7 +7,9 @@ package Controller;
 
 import Model.Carro;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -47,6 +49,32 @@ public class CarroController {
 
     public void insert(View.Carro c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public ArrayList<Carro> getAllRows() throws SQLException {
+     
+        ArrayList<Carro> lista_carros = new ArrayList<Carro>();
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("SELECT * FROM carro ");
+        
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+
+            Carro c = new Carro();
+            
+            c.setId(Integer.parseInt(rs.getString("id")));
+            c.setCor(rs.getString("cor"));
+            c.setMarca(rs.getString("marca"));
+            c.setModelo(rs.getString("modelo"));
+            c.setPlaca(rs.getString("placa"));
+
+            lista_carros.add(c);
+        }
+
+        stmt.close();
+        
+        return lista_carros;        
     }
     
     
