@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class CarroController {
     
     public void insert (Carro c) throws SQLException{
-        try (PreparedStatement stmt = bd.getConn().PrepareStatement("INSERT INTO carro (modelo, cor, marca, placa) VALUES (?, ?, ?, ?)")) {
+        try (PreparedStatement stmt = bd.getConn().PrepareStatement("INSERT INTO carro (modelo, cor, marca, placa) VALUES (?,?, ?, ? )")) {
             stmt.setString(1, c.getModelo());
             stmt.setString(2, c.getCor());
             stmt.setString(3, c.getMarca());
