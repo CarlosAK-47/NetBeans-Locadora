@@ -17,16 +17,23 @@ import java.util.ArrayList;
  */
 public class CarroController {
     
-    public void insert (Carro c) throws SQLException{
-        try (PreparedStatement stmt = bd.getConn().PrepareStatement("INSERT INTO carro (modelo, cor, marca, placa) VALUES (?,?, ?, ? )")) {
-            stmt.setString(1, c.getModelo());
-            stmt.setString(2, c.getCor());
-            stmt.setString(3, c.getMarca());
-            stmt.setString(4, c.getPlaca());
-            
-            stmt.execute();
-        }        
+    private Conexao bd;
+    
+     public CarroController() throws SQLException, ClassNotFoundException {
         
+        this.bd = new Conexao();        
+    }  
+    
+    public void insert (Carro c) throws SQLException{
+        
+        PreparedStatement stmt = bd.getConn().prepareStatement("INSERT INTO carro (modelo, cor, marca, placa) VALUES (?,?, ?, ? )");
+                
+        stmt.setString(1, c.getModelo());
+        stmt.setString(2, c.getCor());
+        stmt.setString(3, c.getMarca());
+        stmt.setString(4, c.getPlaca());
+          
+        stmt.execute();      
     }
     
     public void update (Carro c){
